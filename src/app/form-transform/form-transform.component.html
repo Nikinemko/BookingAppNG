@@ -1,0 +1,77 @@
+<div>
+  <a [routerLink]="['/']">Back</a>
+  <form action="post" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+    <h2>Name of the property: {{ data.name }}</h2>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      [(ngModel)]="data.name"
+      #name="ngModel"
+      required
+      pattern="[a-zA-Z ]+"
+    />
+    <div
+      style="background-color: red"
+      [hidden]="name.valid || name.pristine"
+      class="alert alert-danger"
+    >
+      Name is required
+    </div>
+
+    <p>City: {{ data.city }}</p>
+    <input
+      type="text"
+      name="city"
+      id="city"
+      [(ngModel)]="data.city"
+      #city="ngModel"
+      required
+    />
+    <div
+      style="background-color: red"
+      [hidden]="city.valid || city.pristine"
+      class="alert alert-danger"
+    >
+      City is required
+    </div>
+    <br /><br />
+
+    <p>Address: {{ data.address }}</p>
+    <input type="text" name="address" id="address" [(ngModel)]="data.address" />
+    <br /><br />
+
+    <p>FullName: {{ data.firstName }} {{ data.lastName }}</p>
+    <input
+      type="text"
+      name="firstname"
+      id="firstname"
+      [(ngModel)]="data.firstName"
+    />
+    <input
+      type="text"
+      name="lastname"
+      id="lastname"
+      [(ngModel)]="data.lastName"
+    />
+    <br /><br />
+
+    <p>Current state: {{ data.state | bookingState }}</p>
+    <select
+      class="form-control"
+      id="state"
+      required
+      name="state"
+      [(ngModel)]="data.state"
+      (ngModelChange)="data.state = +$event"
+    >
+      <option *ngFor="let state of stateData" [value]="state">
+        {{ state | bookingState }}
+      </option>
+    </select>
+    <br /><br />
+    {{ data | json }}
+
+    <button type="submit" [disabled]="!bookingForm.form.valid">Save</button>
+  </form>
+</div>

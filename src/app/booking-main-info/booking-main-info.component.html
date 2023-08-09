@@ -1,0 +1,8 @@
+<section class="sect" [ngClass]="getStateClass(bookingData.state)">
+  <h2>Name of the property: {{ bookingData.name }}</h2>
+  <p><b>City:</b> {{ bookingData.city }}</p>
+  <p><b>Address: </b>{{ bookingData.address }}</p>
+  <p><b>Current state: </b>{{ bookingData.state | bookingState }}</p>
+  <p><b>Customer: </b>{{ bookingData.firstName }} {{ bookingData.lastName }}</p>
+  <a [routerLink]="['/booking', bookingData.id]">Edit</a>
+</section>

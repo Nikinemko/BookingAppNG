@@ -1,0 +1,25 @@
+<div>
+  <a [routerLink]="['/']">Back</a>
+  <form action="post" (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
+    <h2>Name of the property: {{ bookingForm.value.name | json }}</h2>
+    <input type="text" formControlName="name" />
+    <div
+      style="background-color: red"
+      [hidden]="bookingForm.valid"
+      class="alert alert-danger"
+    >
+      Name is required
+    </div>
+    <br />
+    {{ bookingForm.value | json }}
+    <p>Current state: {{ bookingForm.value.state | bookingState }}</p>
+    <select class="form-control" formControlName="state">
+      <option *ngFor="let state of stateData" [value]="state">
+        {{ state | bookingState }}
+      </option>
+    </select>
+    <br /><br />
+
+    <button type="submit" [disabled]="!bookingForm.valid">Save</button>
+  </form>
+</div>

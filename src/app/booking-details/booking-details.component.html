@@ -1,0 +1,7 @@
+<div *ngIf="bookingData$ | async as bookingData; else loading">
+  <app-form-transform [data]="bookingData" />
+  <!-- (save)="onSave($event)" -->
+</div>
+<ng-template #loading let-bookingData
+  >Waiting... (bookingData is {{ bookingData | json }})</ng-template
+>

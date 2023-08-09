@@ -1,0 +1,25 @@
+.available {
+  background-color: green;
+}
+
+.occupied {
+  background-color: red;
+}
+
+.booked {
+  background-color: orange;
+}
+
+.empty {
+  background-color: grey;
+}
+
+h2 {
+  margin: 0;
+}
+
+.sect {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 6px #00000066;
+}

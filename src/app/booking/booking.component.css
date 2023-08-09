@@ -1,0 +1,13 @@
+section.container-bookings {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+section.container-bookings app-booking-main-info {
+  width: 31%;
+  flex-wrap: nowrap;
+  margin: 20px 1% 0 1%;
+}
+section.container-bookings app-booking-main-info section {
+  height: 100%;
+}

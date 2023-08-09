@@ -1,0 +1,20 @@
+<h2>{{ "Booking" | uppercase }}</h2>
+<section>
+  <label for="new-booking">Booking name: </label>
+  <input id="new-booking" #bookingName />
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button
+    type="button"
+    class="add-button"
+    (click)="add(bookingName.value); bookingName.value = ''"
+  >
+    Add hero
+  </button>
+  <section class="container-bookings">
+    <app-booking-main-info
+      *ngFor="let data of bookingInfo$ | async"
+      [bookingData]="data"
+    >
+    </app-booking-main-info>
+  </section>
+</section>
